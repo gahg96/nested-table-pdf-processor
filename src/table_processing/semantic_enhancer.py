@@ -82,7 +82,7 @@ class TableSemanticEnhancer:
         # 基本描述
         description = f"表格包含{row_count}行和{col_count}列数据"
         if title:
-            description += f"，标题为"{title}""
+           description += f"，标题为\"{title}\""
         description += "。"
         
         # 添加列信息
