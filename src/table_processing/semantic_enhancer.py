@@ -82,7 +82,7 @@ class TableSemanticEnhancer:
         # 基本描述
         description = f"表格包含{row_count}行和{col_count}列数据"
         if title:
-           description += f"，标题为\"{title}\""
+            description += f"，标题为\"{title}\""  # 修复引号问题
         description += "。"
         
         # 添加列信息
@@ -227,7 +227,7 @@ class TableSemanticEnhancer:
                 min_val = df[col].min()
                 max_val = df[col].max()
                 
-                description += f" 在"{col}"列中，数值平均为{avg:.2f}，范围从{min_val}到{max_val}。"
+                description += f" 在列\"{col}\"中，数值平均为{avg:.2f}，范围从{min_val}到{max_val}。"  # 修复引号问题
             except:
                 pass
         
@@ -238,7 +238,7 @@ class TableSemanticEnhancer:
                 col = cat_cols[0]  # 取第一个分类列作为示例
                 unique_vals = df[col].nunique()
                 
-                description += f" 在"{col}"列中，包含{unique_vals}个不同的类别。"
+                description += f" 在列\"{col}\"中，包含{unique_vals}个不同的类别。"  # 修复引号问题
             except:
                 pass
         
