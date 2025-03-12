@@ -2,12 +2,17 @@ import numpy as np
 import os
 import json
 import pickle
+
+
+
+    # 尝试导入hnswlib，如果失败则使用基于numpy的简单搜索
 try:
     import hnswlib
     HNSW_AVAILABLE = True
+    print("HNSW library successfully imported. Using HNSW for fast vector search.")
 except ImportError:
     HNSW_AVAILABLE = False
-    print("Warning: hnswlib not installed. Falling back to brute force search.")
+    print("Warning: hnswlib import failed. Falling back to brute force numpy search.")
 
 class VectorIndexBuilder:
     """构建表格向量索引，支持高效检索"""
